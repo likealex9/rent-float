@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
+app.use('/favorite', favoriterouter);
 app.use('/login', loginrouter);
 app.use('/register', regrouter);
 app.get('/', async (req, res) => {

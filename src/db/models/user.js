@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.flatCategories,{foreignKey:"id_user"})
-      this.belongsTo(models.favorite,{foreignKey:"id_user"})
+      this.hasMany(models.favorite, { foreignKey: 'id_user' });
+      this.hasMany(models.flatCategories, { foreignKey: 'id_user' });
     }
   }
   user.init({
