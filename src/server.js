@@ -13,7 +13,7 @@ import authCheck from './components/middlewares/authCheck';
 
 // npm i express-session session-file-store
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ?? 3000;
 
 require('dotenv').config();
 

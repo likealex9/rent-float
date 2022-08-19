@@ -4,7 +4,7 @@ import Page from './Page';
 export default function MainPage({ setDiscrFlat, discrFlat, authState }) {
   const filtration = -1;
   useEffect(() => {
-    fetch('http://localhost:3000/qwerty')
+    fetch('/qwerty')
       .then((res) => res.json())
       .then((data) => setDiscrFlat(data));
   }, []);

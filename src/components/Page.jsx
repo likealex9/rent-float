@@ -13,11 +13,11 @@ export default function Page({ el, authState }) {
       <div
         className="card"
         style={{
-          width: '18rem', height: '30rem', borderWidth: '0.5', borderColor: 'darkgrey', boxShadow: '11px 14px 9px 1px  silver'
+          width: '25rem', height: '30rem', borderWidth: '0.5', borderColor: 'darkgrey', boxShadow: '11px 14px 9px 1px  silver'
         }}
       >
-        <img src={el.img} className="img-thumbnail" alt="..." />
-        <div className="card-body">
+        <img src={el.img} className="card-img-top" style={{ height: '20rem' }} alt="..." />
+        <div className="card-body d-flex flex-column justify-content-end">
           <h5 className="card-title">
             Цена:
             {' '}
@@ -27,7 +27,7 @@ export default function Page({ el, authState }) {
           <p className="card-text">{el.descriptions}</p>
           <p className="card-text">{el.coordinate}</p>
           { authState && (
-            <div className="d-grid gap-2 d-md-flex justify-content-md-right">
+            <div className="d-grid gap-2 d-md-flex  justify-content-md-right">
               <Link to={`/houses/edit/${el.id}`} className="btn btn-secondary" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Подробнее</Link>
               {buttonState && <button onClick={(e) => addHandler(e, el.id)} to={`/favorite/add/${el.id}`} type="submit" className="btn btn-success">Добавить в избранное</button>}
               {!buttonState && <button type="submit" className="btn btn-success" disabled> Добавить в избранное</button>}

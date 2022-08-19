@@ -27,6 +27,7 @@ route.get('/pulledit/:id', async (req, res) => {
       include: { model: user },
       where: { id: req.params.id },
     });
+    console.log(findFlat);
   } catch (err) {
     console.error(err);
   }
