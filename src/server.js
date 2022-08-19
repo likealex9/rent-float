@@ -1,5 +1,4 @@
 import express from 'express';
-import morgan from 'morgan';
 import session from 'express-session';
 import store from 'session-file-store';
 import { renderToString } from 'react-dom/server';
@@ -34,7 +33,6 @@ const sessionConfig = {
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
 // app.use(authCheck);
