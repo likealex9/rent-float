@@ -10,7 +10,6 @@ import regrouter from './routes/regrouter';
 import favoriterouter from './routes/favoriterouter';
 import { flat } from './db/models';
 
-// npm i express-session session-file-store
 const app = express();
 const PORT = 3000;
 
@@ -19,14 +18,14 @@ const PORT = 3000;
 const FileStore = store(session);
 
 const sessionConfig = {
-  name: 'user_sid', 				// Имя куки для хранения id сессии. По умолчанию - connect.sid
-  secret: process.env.SESSION_SECRET ?? 'test',	// Секретное слово для шифрования, может быть любым
-  resave: true, 				// Пересохранять ли куку при каждом запросе
-  saveUninitialized: false, 		// Создавать ли сессию без инициализации ключей в req.session
+  name: 'user_sid',
+  secret: process.env.SESSION_SECRET ?? 'test',
+  resave: true,
+  saveUninitialized: false,
   store: new FileStore(),
   cookie: {
-    maxAge: 1000 * 60 * 60 * 12, // Срок истечения годности куки в миллисекундах
-    httpOnly: true, 				// Серверная установка и удаление куки, по умолчанию true
+    maxAge: 1000 * 60 * 60 * 12,
+    httpOnly: true,
   },
 };
 
@@ -40,7 +39,6 @@ app.use('/favorite', favoriterouter);
 app.use('/login', loginrouter);
 
 app.use('/register', regrouter);
-
 
 app.use('/signup', regrouter);
 app.use('/users', regrouter);
@@ -71,5 +69,7 @@ app.get('/qwerty', async (req, res) => {
   const list = await flat.findAll();
   res.json(list);
 });
+
+
 
 app.listen(PORT, () => console.log(`Server is started on port ${PORT}`));

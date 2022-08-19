@@ -6,6 +6,7 @@ import Login from './Login';
 import MainPage from './MainPage';
 import Navbar from './Navbar';
 import Register from './Register';
+import FavorBut from './FavorBut';
 
 function App({ path, data, userSession }) {
   const [authState, setAuthState] = useState(userSession || null);
@@ -18,6 +19,7 @@ function App({ path, data, userSession }) {
         <Route path="/login" element={<Login setAuthState={setAuthState} />} />
         <Route path="/signup" element={<Register setAuthState={setAuthState} />} />
         <Route path="/houses/:id" element={<Edithouse />} />
+        <Route path="/favorite/add/:id" element={<FavorBut />} />
         <Route path="/favorite/:id" element={<Favorite setDataState={setDataState} dataState={dataState} authState={authState} />} />
       </Routes>
     </div>

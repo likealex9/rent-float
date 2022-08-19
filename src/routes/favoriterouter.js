@@ -29,4 +29,11 @@ route.get('/:id', async (req, res) => {
   }
 });
 
+route.post('/add/:id', async (req, res) => {
+  const { id_flat } = req.params.id;
+  console.log(id_flat)
+  const newFav = await favorite.create({ id_user: req.session.userId, id_flat });
+  res.sendStatus(200);
+});
+
 export default route;
