@@ -37,7 +37,7 @@ export default function MainPage({ authState }) {
                 <p className="card-text">{el.coordinate}</p>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-right">
                   <a href="/" className="btn btn-secondary">Подробнее</a>
-                  <Link to="/favorite/add/:id" type="submit" className="btn btn-success">В избранное</Link>
+                  <Link to="/favorite/add/:id" type="submit" className="btn btn-success">Избранное</Link>
                 </div>
               </div>
             </div>
